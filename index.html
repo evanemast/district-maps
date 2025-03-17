@@ -5,18 +5,33 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        h1 { color: #333; }
-        ul { list-style-type: none; padding: 0; }
-        li { margin: 10px 0; }
-        a { text-decoration: none; font-size: 18px; color: blue; }
-        a:hover { color: darkblue; }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            display: inline-block; /* Page width automatically adjusts to text width */
+            text-align: left;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>Interactive District Maps</h1>
-    <p>Click a city below to view its interactive map:</p>
-    <ul>
+    <div class='container'>
+        <h1>District Maps</h1>
+        <p>
+            Choose a metropolitan area below to view an interactive map of the districts created in
+                        <a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4857389' target='_blank'>Off the Beaten Tract: Constructing a New Neighborhood Geography from Migration Data</a>
+ by Evan Mast.
+            Districts are a new neighborhood geography composed of 5 to 15 census tracts.
+            They are drawn using a community detection algorithm that bundles together census tracts
+            that see a disproportionate amount of cross migration.
+        </p>
+        <p>
+            If you would like a crosswalk from census tracts (2010 vintage) to districts, email Evan at <a href='mailto:emast@nd.edu'>emast@nd.edu</a>.
+        </p>
+        <ul>
 <li><a href='https://evanemast.github.io/district-maps/districts_New York.html'>New York</a></li>
 <li><a href='https://evanemast.github.io/district-maps/districts_Los Angeles.html'>Los Angeles</a></li>
 <li><a href='https://evanemast.github.io/district-maps/districts_Chicago.html'>Chicago</a></li>
@@ -116,6 +131,7 @@
 <li><a href='https://evanemast.github.io/district-maps/districts_Modesto.html'>Modesto</a></li>
 <li><a href='https://evanemast.github.io/district-maps/districts_Palm Bay.html'>Palm Bay</a></li>
 <li><a href='https://evanemast.github.io/district-maps/districts_McAllen.html'>McAllen</a></li>
-    </ul>
+        </ul>
+    </div>
 </body>
 </html>
