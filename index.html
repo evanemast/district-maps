@@ -8,136 +8,216 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
         }
-        .container {
-            display: inline-block; /* Page width automatically adjusts to text width */
-            text-align: left;
+        .sidebar {
+            width: 20%;
+            background-color:#f8f8f8;
             padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .main {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 { margin-top: 5; }
+        .controls { 
+            display: flex; 
+            gap: 15px; 
+            align-items: center; 
+            margin-bottom: 15px; 
+        }
+        h2 { 
+            margin-top: 5;
+            font-size: 16px;
+        }
+        a.button-link {
+          padding: 0px 25px;
+          background: #007bff;
+          color: white;
+          text-decoration: none;
+          border-radius: 4px;
+          font-size: 16px;
+          height: 36px;
+          line-height: 36px;
+          box-sizing: border-box;
+          display: inline-flex;
+          align-items: center;
+        }
+        a.button-link:hover { background: #0056b3; }
+        iframe { 
+            flex: 1;
+            width: 100%; 
+            border: 1px solid #ccc; 
+        }
+        select { 
+            font-size: 16px; 
+            height: 36px;
+            line-height: 36px;
+            box-sizing: border-box;
+            padding: 5px; 
+            margin-bottom: 20px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class='container'>
+    <div class='sidebar'>
         <h1>District Maps</h1>
         <p>
-            Choose a metropolitan area below to view an interactive map of the districts created in
-                        <a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4857389' target='_blank'>Off the Beaten Tract: Constructing a New Neighborhood Geography from Migration Data</a>
- by Evan Mast.
-            Districts are a new neighborhood geography composed of 5 to 15 census tracts.
-            They are drawn using a community detection algorithm that bundles together census tracts
-            that see a disproportionate amount of cross migration. Further details on the methodology and the underlying data can be found in the working paper linked above.
+            Choose a metropolitan area below to view an interactive map of the districts created in 
+              <a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4857389' target='_blank'>Off the Beaten Tract: Constructing a New Neighborhood Geography from Migration Data</a>
+ by Evan Mast. 
+            Districts are a new neighborhood geography composed of 5 to 15 census tracts. 
+            They are drawn using a community detection algorithm that bundles together census tracts that see a disproportionate amount of cross migration. 
+            Further details on the methodology and the underlying data can be found in the working paper linked above.
         </p>
+        
         <p>
-           The map shows district boundaries (black) and census tract boundaries (red) on top of an
-           Open Street Map base layer. Low population tracts, such as parks and industrial areas,   
-           are shaded black and not included in any district. You can turn the district and tract
-           boundaries on and off using the toggle on the upper-right.
+          The map shows district boundaries (thick lines) and census tract boundaries (thin lines) on top of an Esri base layer. 
+          Low population tracts, such as parks and industrial areas, are not colored in and not included in any district. 
+          You can turn colors and boundaries on and off using the toggle in the upper-right.
         </p>
+        
         <p>
-            A crosswalk from census tracts (2010 vintage) to districts can be downloaded  <a href='https://evanemast.github.io/district-maps/mast_tract_to_district_crosswalk.csv' target= '_blank'>here</a>.
+            A crosswalk from census tracts (2010 vintage) to districts can be downloaded <a href='https://evanemast.github.io/district-maps/mast_tract_to_district_crosswalk.csv' target='_blank'>here</a>.
         </p>
-        <ul>
-<li><a href='https://evanemast.github.io/district-maps/districts_New York.html'>New York</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Los Angeles.html'>Los Angeles</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Chicago.html'>Chicago</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Washington.html'>Washington</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Dallas.html'>Dallas</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Atlanta.html'>Atlanta</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Houston.html'>Houston</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Philadelphia.html'>Philadelphia</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Boston.html'>Boston</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_St. Louis.html'>St. Louis</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Pittsburgh.html'>Pittsburgh</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Seattle.html'>Seattle</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_San Francisco.html'>San Francisco</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Riverside.html'>Riverside</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Baltimore.html'>Baltimore</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Detroit.html'>Detroit</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Nashville.html'>Nashville</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Cincinnati.html'>Cincinnati</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Miami.html'>Miami</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Minneapolis.html'>Minneapolis</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Phoenix.html'>Phoenix</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Portland.html'>Portland</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Birmingham.html'>Birmingham</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_San Antonio.html'>San Antonio</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_San Diego.html'>San Diego</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Denver.html'>Denver</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Charlotte.html'>Charlotte</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Tampa.html'>Tampa</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Sacramento.html'>Sacramento</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Kansas City.html'>Kansas City</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Richmond.html'>Richmond</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Austin.html'>Austin</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Virginia Beach.html'>Virginia Beach</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Orlando.html'>Orlando</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Cleveland.html'>Cleveland</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Columbus.html'>Columbus</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_New Orleans.html'>New Orleans</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Louisville.html'>Louisville</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Columbia.html'>Columbia</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Memphis.html'>Memphis</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Raleigh.html'>Raleigh</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Little Rock.html'>Little Rock</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Urban Honolulu.html'>Urban Honolulu</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Tulsa.html'>Tulsa</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Providence.html'>Providence</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Greenville.html'>Greenville</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Knoxville.html'>Knoxville</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_San Jose.html'>San Jose</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Charleston.html'>Charleston</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Baton Rouge.html'>Baton Rouge</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Las Vegas.html'>Las Vegas</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Jacksonville.html'>Jacksonville</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Oklahoma City.html'>Oklahoma City</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Jackson.html'>Jackson</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Indianapolis.html'>Indianapolis</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Greensboro.html'>Greensboro</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Milwaukee.html'>Milwaukee</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Chattanooga.html'>Chattanooga</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Hartford.html'>Hartford</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Augusta.html'>Augusta</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Omaha.html'>Omaha</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Albany.html'>Albany</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Rochester.html'>Rochester</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Buffalo.html'>Buffalo</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Albuquerque.html'>Albuquerque</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Bakersfield.html'>Bakersfield</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Poughkeepsie.html'>Poughkeepsie</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Fresno.html'>Fresno</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Tucson.html'>Tucson</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Bridgeport.html'>Bridgeport</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Syracuse.html'>Syracuse</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Boise City.html'>Boise City</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Salt Lake City.html'>Salt Lake City</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Oxnard.html'>Oxnard</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Lakeland.html'>Lakeland</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Madison.html'>Madison</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Allentown.html'>Allentown</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_New Haven.html'>New Haven</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Dayton.html'>Dayton</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Springfield.html'>Springfield</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Lancaster.html'>Lancaster</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Worcester.html'>Worcester</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Harrisburg.html'>Harrisburg</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Grand Rapids.html'>Grand Rapids</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Scranton.html'>Scranton</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Colorado Springs.html'>Colorado Springs</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Ogden.html'>Ogden</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Cape Coral.html'>Cape Coral</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Youngstown.html'>Youngstown</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Toledo.html'>Toledo</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Stockton.html'>Stockton</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Des Moines.html'>Des Moines</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Wichita.html'>Wichita</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_North Port.html'>North Port</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Akron.html'>Akron</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_El Paso.html'>El Paso</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Modesto.html'>Modesto</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_Palm Bay.html'>Palm Bay</a></li>
-<li><a href='https://evanemast.github.io/district-maps/districts_McAllen.html'>McAllen</a></li>
-        </ul>
-    </div>
-</body>
-</html>
+        </div>
+        
+        
+        <div class='main'>
+          <div class='controls'>
+            <h2>Select a metropolitan area:</h2>
+        
+            <select id='citySelect'>
+              <option value="https://evanemast.github.io/district-maps/a_districts_Akron.html">Akron</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Albany.html">Albany</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Albuquerque.html">Albuquerque</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Allentown.html">Allentown</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Atlanta.html">Atlanta</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Augusta.html">Augusta</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Austin.html">Austin</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Bakersfield.html">Bakersfield</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Baltimore.html">Baltimore</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Baton Rouge.html">Baton Rouge</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Birmingham.html">Birmingham</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Boise City.html">Boise City</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Boston.html">Boston</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Bridgeport.html">Bridgeport</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Buffalo.html">Buffalo</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Cape Coral.html">Cape Coral</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Charleston.html">Charleston</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Charlotte.html">Charlotte</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Chattanooga.html">Chattanooga</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Chicago.html" selected>Chicago</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Cincinnati.html">Cincinnati</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Cleveland.html">Cleveland</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Colorado Springs.html">Colorado Springs</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Columbia.html">Columbia</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Columbus.html">Columbus</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Dallas.html">Dallas</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Dayton.html">Dayton</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Denver.html">Denver</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Des Moines.html">Des Moines</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Detroit.html">Detroit</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_El Paso.html">El Paso</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Fresno.html">Fresno</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Grand Rapids.html">Grand Rapids</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Greensboro.html">Greensboro</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Greenville.html">Greenville</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Harrisburg.html">Harrisburg</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Hartford.html">Hartford</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Houston.html">Houston</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Indianapolis.html">Indianapolis</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Jackson.html">Jackson</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Jacksonville.html">Jacksonville</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Kansas City.html">Kansas City</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Knoxville.html">Knoxville</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Lakeland.html">Lakeland</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Lancaster.html">Lancaster</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Las Vegas.html">Las Vegas</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Little Rock.html">Little Rock</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Los Angeles.html">Los Angeles</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Louisville.html">Louisville</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Madison.html">Madison</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_McAllen.html">McAllen</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Memphis.html">Memphis</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Miami.html">Miami</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Milwaukee.html">Milwaukee</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Minneapolis.html">Minneapolis</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Modesto.html">Modesto</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Nashville.html">Nashville</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_New Haven.html">New Haven</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_New Orleans.html">New Orleans</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_New York.html">New York</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_North Port.html">North Port</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Ogden.html">Ogden</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Oklahoma City.html">Oklahoma City</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Omaha.html">Omaha</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Orlando.html">Orlando</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Oxnard.html">Oxnard</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Palm Bay.html">Palm Bay</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Philadelphia.html">Philadelphia</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Phoenix.html">Phoenix</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Pittsburgh.html">Pittsburgh</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Portland.html">Portland</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Poughkeepsie.html">Poughkeepsie</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Providence.html">Providence</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Raleigh.html">Raleigh</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Richmond.html">Richmond</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Riverside.html">Riverside</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Rochester.html">Rochester</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Sacramento.html">Sacramento</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Salt Lake City.html">Salt Lake City</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_San Antonio.html">San Antonio</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_San Diego.html">San Diego</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_San Francisco.html">San Francisco</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_San Jose.html">San Jose</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Scranton.html">Scranton</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Seattle.html">Seattle</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Springfield.html">Springfield</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_St. Louis.html">St. Louis</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Stockton.html">Stockton</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Syracuse.html">Syracuse</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Tampa.html">Tampa</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Toledo.html">Toledo</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Tucson.html">Tucson</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Tulsa.html">Tulsa</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Urban Honolulu.html">Urban Honolulu</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Virginia Beach.html">Virginia Beach</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Washington.html">Washington</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Wichita.html">Wichita</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Worcester.html">Worcester</option>
+<option value="https://evanemast.github.io/district-maps/a_districts_Youngstown.html">Youngstown</option>
+
+            </select>
+          
+          <a id='newTabLink' href='https://evanemast.github.io/district-maps/a_districts_Chicago.html' target='_blank' class='button-link'>Open in new tab</a>
+        
+          </div>
+          
+          <iframe id='cityFrame' src='https://evanemast.github.io/district-maps/a_districts_Chicago.html'></iframe>
+          
+        </div>
+        
+        <script>
+          const select = document.getElementById('citySelect');
+          const frame = document.getElementById('cityFrame');
+          select.addEventListener('change',function(){
+            frame.src = this.value;
+            newTabLink.href = this.value;
+          });
+        </script>
+          
+          </body>
+          </html>
+        
